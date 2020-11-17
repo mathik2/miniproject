@@ -1,0 +1,161 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>365entertainment</title>
+    <style>
+        #tab {
+            background-image: linear-gradient(to right, rgb(81, 186, 235), rgb(172, 224, 28));
+            ;
+            word-spacing: 30px;
+            padding: 15px;
+            width: 100%;
+        }
+        
+        #tablinks:hover {
+            background-color: aliceblue;
+            cursor: pointer;
+            padding: 15px;
+        }
+        
+        #tablinks {
+            padding: 15px;
+        }
+        
+        #icon {
+            box-sizing: content-box;
+            background-color: rgb(192, 196, 7);
+            border: 8px solid rgb(199, 202, 38);
+            border-radius: 5px;
+            box-shadow: 2px 5px 5px 2px rgb(136, 127, 127);
+        }
+        
+        #slides {
+            height: 60%;
+            width: 100%;
+            border: 3px solid black;
+            z-index: -1;
+        }
+        
+        #carousal {
+            position: relative;
+        }
+        
+        #right {
+            top: 50%;
+            right: 5%;
+            position: absolute;
+        }
+        
+        #left {
+            top: 50%;
+            position: absolute;
+            left: 5%;
+        }
+        
+        #accordation {
+            background-color: black;
+            height: 50px;
+            width: 100%;
+            position: relative;
+        }
+        
+        #genre {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            height: 25px;
+            width: 20%;
+            background-color: yellow;
+        }
+        
+        #input {
+            position: absolute;
+            right: 10px;
+            width: 75%;
+            height: 25px;
+            text-align: center;
+            top: 10px;
+            background-color: yellow;
+        }
+        
+        option {
+            height: 50px;
+            width: 50px;
+        }
+        
+        footer {
+            background-image: linear-gradient(to right, rgb(20, 185, 214), rgb(136, 231, 10));
+            ;
+            padding: 15px;
+        }
+        
+        #items {
+            padding: 5%;
+        }
+        
+        body {
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tab">
+        <a id="icon">365</a>
+        <a id="tablinks">Movies</a>
+        <a id="tablinks">series</a>
+        <a id="tablinks">Audio</a>
+    </div>
+    <div id="carousal">
+        <img id="slides">
+        <button id="left" onclick="left()">&#10094</button>
+        <button onclick="right()" id="right">&#10095</button> </div>
+    </div>
+    <div id="accordation">
+        <select id="genre" onchange="on(this.value)">
+            <option >Genre</option>
+           
+            <option id="action" value="soorarai potru.jpg">Action</option>
+            <option id="drama" value="redgreenyellow.jpg">Drama</option>
+            <option id="sci-fic" value="mookutho amman.jpg">fantasy</option>
+</select>
+        <input id="input" type="search" placeholder="search your favourite movie title">
+    </div>
+    <div id="items"></div>
+    <footer> <span style="height: 4px; width:
+        4px; background-color:yellowgreen ;padding:8px;border-radius:5px ; box-shadow:2px 5px 5px ;">365</span >   Powered by 365 Entertaunment Portal 2019.All Rights Reserved</footer>
+
+    <script>
+        var i = -1;
+        var images = ["soorarai potru.jpg", "mookutho amman.jpg", "redgreenyellow.jpg"]
+
+        function right() {
+            i = i + 1;
+            if (i < images.length) {
+                document.getElementById("slides").src = images[i];
+
+                if (i == images.length - 1) {
+                    i = -1;
+                }
+            }
+        }
+
+        function left() {
+
+            if (i == -1) {
+                i = 2
+            }
+
+            document.getElementById("slides").src = images[i];
+            i = i - 1
+        }
+
+        function on(x) {
+            document.getElementById('items').innerHTML = "<img src='" + x + "'>";
+        }
+    </script>
+</body>
+
+</html>
