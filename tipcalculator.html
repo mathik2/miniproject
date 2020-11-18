@@ -1,0 +1,76 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        .container {
+            height: 300px;
+            width: 350px;
+            margin: auto;
+            border: 3px solid black;
+            position: relative;
+            background-color: rgb(17, 228, 228);
+        }
+        
+        label {
+            width: 90px;
+            display: inline-block;
+            text-align: right;
+        }
+        
+        input {
+            display: inline-block;
+            width: 150px;
+        }
+        
+        #amount,
+        #tip,
+        #total {
+            padding: 5px;
+            font-size: 25pxpx;
+        }
+        
+        #footer {
+            text-align: center;
+            color: rgb(224, 34, 28);
+            font-weight: bold;
+            font-size: 20px;
+            padding: 20px;
+        }
+        
+        #tipcal {
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 20px;
+        }
+        
+        button {
+            margin-left: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="tipcal">Tip Calculator</div>
+        <div id="amounts"><label>Amount:</label><input id="amount" type="number"></div> <br>
+        <div id="tips"><label> TipAmount :</label> <input id="tip" type="number"></div><br>
+        <div id="totals"><label>Bill :</label> <input id="total"></div>
+        <div><button onclick="tip();">TIP</button></div>
+        <div id="footer">Thank you!!! Visit again</div>
+    </div>
+    <script>
+        function tip() {
+            let amt = document.getElementById("amount").value;
+            let tipAmount = document.getElementById("tip").value;
+            let total = document.getElementById("total")
+            let t = amt - tipAmount;
+            document.getElementById("total").value = t;
+        }
+    </script>
+</body>
+
+</html>
